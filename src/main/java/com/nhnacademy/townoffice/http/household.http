@@ -1,0 +1,22 @@
+GET /household HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+
+###
+POST /household HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "householdResident": 12,
+  "householdCompositionDate": "1995-04-12",
+  "householdReasonCode": "세대분리",
+  "currentHouseAddress": "광주광역시 동구 지산길 356"
+}
+
+
+###
+DELETE /household/7 HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json

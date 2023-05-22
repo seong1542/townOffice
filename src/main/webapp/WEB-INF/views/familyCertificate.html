@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>가족관계증명서 발급</title>
+    <link rel="stylesheet" href="/resources/style.css">
+</head>
+<body>
+<div class="main-form">
+    <h1>가족관계증명서</h1>
+    <table border="1" class="table-form">
+        <thead>
+        <tr class="head-certificate">
+            <td colspan="5"><p><span class="texts">발급일 : </span><span th:text="${certificate.certificateIssueDate}"/> <span class="texts">, 증명서 발급번호</span> <span th:text="${certificate.certificateConfirmationNumber}"/></p></td>
+        </tr>
+        <tr>
+            <td colspan="2" class="paint-back">등록기준지(본적)</td>
+            <td th:text="${addressDto.currentAddress}" colspan="3"></td>
+        </tr>
+        <tr class="paint-back">
+            <td>구분</td>
+            <td>이름</td>
+            <td>생년월일</td>
+            <td>주민등록번호</td>
+            <td>성별</td>
+        </tr>
+        </thead>
+        <tbody th:each="resident :${residentDtos}">
+        <tr>
+            <td th:text="${resident.familyRelationshipCode}"></td>
+            <td th:text="${resident.name}"></td>
+            <td th:text="${resident.birthDate}"></td>
+            <td th:text="${resident.residentRegistrationNumber}"></td>
+            <td th:text="${resident.genderCode}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<br/>
+<br/>
+<a href="/resident">주민 목록으로 이동하기</a>
+</body>
+</html>

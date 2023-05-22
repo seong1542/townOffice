@@ -1,0 +1,23 @@
+POST /household/5/movement HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "houseMovementDate": "2018-02-21",
+  "houseMovementAddress": "대구광역시 대안대로 23번길 2"
+}
+
+
+###
+PUT /household/3/movement/20230523 HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "houseMovementAddress": "서울 용산로 5번길 199"
+}
+
+###
+DELETE /household/3/movement/20230523 HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json

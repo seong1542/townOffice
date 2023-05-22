@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>증명서 발급 목록</title>
+</head>
+<body>
+  <h1>증명서 발급 목록</h1>
+  <table border="1">
+    <thead>
+    <tr>
+      <th>증명서발급번호</th>
+      <th>증명서 신청인</th>
+      <th>증명서 종류</th>
+      <th>증명서 발급날짜</th>
+    </tr>
+    </thead>
+    <tbody th:each="item: ${certificates}">
+    <tr>
+      <td th:text="${item.certificateConfirmationNumber}"></td>
+      <td th:text="${item.resident}"></td>
+      <td th:text="${item.certificateTypeCode}"></td>
+      <td th:text="${item.certificateIssueDate}"></td>
+    </tr>
+    </tbody>
+  </table>
+<div class="page">
+  <a th:href="@{|/certificate/list/${serialNumber}|(page=${certificates.pageable.pageNumber - 1} , size=${certificates.pageable.pageSize})}" th:if="${certificates.pageable.pageNumber gt 0 }" >이전</a>
+  <span th:text="${certificates.pageable.pageNumber+1}" />/<span th:text="${certificates.totalPages}"/>
+  <a th:href="@{|/certificate/list/${serialNumber}|(page=${certificates.pageable.pageNumber+1} , size=${certificates.pageable.pageSize})}" th:if="${certificates.pageable.pageNumber lt certificates.totalPages -1}" >다음</a>
+</div>
+  <br/>
+  <br/>
+  <a href="/resident">주민 목록으로 이동하기</a>
+</body>
+</html>

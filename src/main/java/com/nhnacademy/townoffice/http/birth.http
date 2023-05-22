@@ -1,0 +1,32 @@
+POST /residents/2/birth HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "residentSerialNumber": 4,
+  "birthDeathTypeCode": "출생",
+  "reportDate": "1979-05-10",
+  "birthReporterCode": "부",
+  "deathReporterCode": "",
+  "email": "",
+  "phoneNumber": "010-2239-4678",
+  "deathPlace" : null,
+  "deathAddress" : null
+}
+
+###
+PUT /residents/12/birth/13 HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "birthReporterCode": "모",
+  "email": "academy@nhn.com",
+  "phoneNumber": "010-8812-1234"
+}
+
+###
+DELETE /residents/12/birth/13 HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+

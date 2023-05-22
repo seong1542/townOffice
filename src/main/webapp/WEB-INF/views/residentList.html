@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>주민목록</title>
+  <link rel="stylesheet" href="/resources/style.css">
+</head>
+<body>
+<h1>NHN 동사무소</h1>
+<h4>필요하신 서류를 눌러주세요.</h4>
+
+<table border="1" class="table-form">
+  <thead>
+    <tr>
+      <th>No.</th>
+      <th>이름</th>
+      <th>가족관계증명서 발급</th>
+      <th>주민등록등본 발급</th>
+      <th>출생신고서 발급</th>
+      <th>사망신고서 발급</th>
+      <th>증명서 발급 목록</th>
+      <th>삭제</th>
+    </tr>
+  </thead>
+  <tbody th:each="resident :${residents}">
+  <tr>
+    <td th:text="${resident.residentSerialNumber}"></td>
+    <td th:text="${resident.name}"></td>
+    <td>
+      <form th:action="@{|/certificate/family/${resident.residentSerialNumber}|}", th:method="post">
+        <input type="submit" value="가족관계증명서"/>
+      </form>
+    </td>
+    <td>
+      <form th:action="@{|/certificate/person/${resident.residentSerialNumber}|}", th:method="post">
+        <input type="submit" value="주민등록등본"/>
+      </form>
+    </td>
+    <td>
+      <form th:if="${resident.isBirthExist}" th:action="@{|/certificate/birth/${resident.residentSerialNumber}|}", th:method="post">
+        <input type="submit" value="출생신고서"/>
+      </form>
+    </td>
+    <td>
+      <form th:if="${resident.isDeathExist}" th:action="@{|/certificate/death/${resident.residentSerialNumber}|}", th:method="post">
+        <input type="submit" value="사망신고서"/>
+      </form>
+    </td>
+    <td>
+      <a th:href="@{|/certificate/list/${resident.residentSerialNumber}|}">증명서 발급 목록</a>
+    </td>
+    <td>
+      <form name="form" th:action="@{|/resident/delete/${resident.residentSerialNumber}|}", th:method="post">
+        <button type="submit" name="btnDelete">삭제</button>
+      </form>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="page">
+  <a th:href="@{/resident(page=${residents.pageable.pageNumber -1}, size=${residents.pageable.pageSize})}" th:if="${residents.pageable.pageNumber gt 0}">이전</a>
+  <span th:text="${residents.pageable.pageNumber+1}"/> / <span th:text="${residents.totalPages}"/>
+  <a th:href="@{/resident(page=${residents.pageable.pageNumber +1}, size=${residents.pageable.pageSize})}" th:if="${residents.pageable.pageNumber lt residents.totalPages -1}">다음</a>
+</div>
+</body>
+</html>

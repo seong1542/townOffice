@@ -1,0 +1,31 @@
+POST /residents HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "name": "이수지",
+  "residentRegistrationNumber": "950412-2833442",
+  "genderCode": "여",
+  "birthDate": "1995-04-12T19:30:00",
+  "birthPlaceCode": "병원",
+  "registrationBaseAddress": "광주광역시 동구 지산길 356"
+}
+
+###
+GET /residents HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+###
+PUT /residents/8 HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "name": "유승민",
+  "residentRegistrationNumber": "970829-1233412",
+  "genderCode": "남",
+  "birthDate": "1997-08-29T13:30:00",
+  "birthPlaceCode": "자택",
+  "registrationBaseAddress": "광주광역시 동구 용산동 3길 17"
+}

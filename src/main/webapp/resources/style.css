@@ -1,0 +1,20 @@
+.texts{
+    color: aliceblue;
+    text-align: center;
+}
+.head-certificate{
+    background-color: lightslategray;
+}
+.main-form{
+    width: 1000px;
+}
+.table-form{
+    width: 1000px;
+    text-align: center;
+}
+h1{
+    text-align: center;
+}
+.paint-back{
+    background-color: lightslategray;
+}

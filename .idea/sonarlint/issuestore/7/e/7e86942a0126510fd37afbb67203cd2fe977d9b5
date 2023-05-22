@@ -1,0 +1,10 @@
+
+W
+java:S1128
+":Remove this unused import 'org.hibernate.cfg.Environment'.(ªÛÓà8ôÄ•öƒ1
+l
+java:S1128"JRemove this unused import 'org.springframework.core.io.ClassPathResource'.(Ý¹º§ýÿÿÿÿ8ìð£öƒ1
+}
+java:S1128"[Remove this unused import 'org.springframework.jdbc.datasource.init.DataSourceInitializer'.(ÐææÞøÿÿÿÿ8ìð£öƒ1
+{
+java:S1128"_Remove this unused import 'org.springframework.jdbc.datasource.init.ResourceDatabasePopulator'.(ä‘ž8ìð£öƒ1

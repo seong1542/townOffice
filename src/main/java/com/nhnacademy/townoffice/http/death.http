@@ -1,0 +1,32 @@
+
+POST /residents/3/death HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "residentSerialNumber": 2,
+  "birthDeathTypeCode": "사망",
+  "reportDate": "2023-01-29",
+  "birthReporterCode": "",
+  "deathReporterCode": "자녀",
+  "email": "nhn123@nhnacdemy.com",
+  "phoneNumber": "010-2234-4678",
+  "deathPlace" : "자택",
+  "deathAddress" : "대구광역시 대로변길 365"
+}
+
+###
+PUT /residents/3/death/2 HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "deathReporterCode": "배우자",
+  "email": "nhn123@nhnacdemy.com",
+  "phoneNumber": "010-2234-4678"
+}
+
+###
+DELETE /residents/12/death/13 HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json

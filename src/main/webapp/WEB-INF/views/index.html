@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Main_Page</title>
+</head>
+<body>
+<div sec:authorize="isAuthenticated()">
+    <span sec:authentication="name"/>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/logout">로그아웃</a>
+    <div sec:authorize="hasAuthority('ROLE_ADMIN')">
+        <p><a href="/resident">주민 목록으로 이동하기(관리자용)</a></p>
+    </div>
+    <div sec:authorize="hasAnyAuthority('ROLE_MEMBER', 'ROLE_GUEST')">
+        <p><a href="/member">일반 사용자만 들어갈 수 있어요.</a></p>
+    </div>
+</div>
+<div sec:authorize="!isAuthenticated()">
+    <a href="/login">로그인하러가기</a>
+</div>
+
+</body>
+</html>

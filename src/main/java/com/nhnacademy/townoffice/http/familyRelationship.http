@@ -1,0 +1,30 @@
+GET /residents/12/relationship/13 HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+
+###
+POST /residents/12/relationship HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+    "familyResidentSerialNumber": 13,
+    "familyRelationshipCode": "자녀"
+}
+
+
+###
+PUT /residents/12/relationship/13 HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+    "familyRelationshipCode": "부"
+}
+
+
+###
+DELETE /residents/12/relationship/13 HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
